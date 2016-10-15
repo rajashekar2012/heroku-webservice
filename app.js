@@ -1,6 +1,18 @@
 var express = require('express');
 var app = express();
 
+var cool = require('cool-ascii-faces');
+var express = require('express');
+var app = express();
+
+app.set('port', (process.env.PORT || 5000));
+
+app.use(express.static(__dirname + '/public'));
+
+// views is directory for all template files
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
 // This responds with "Hello World" on the homepage
 app.get('/', function (req, res) {
    console.log("Got a GET request for the homepage");
@@ -31,10 +43,11 @@ app.get('/ab*cd', function(req, res) {
    res.send('Page Pattern Match');
 })
 
-var server = app.listen(8081, function () {
+var server = app.listen(app.get('port'), function () {
 
-   var host = server.address().address
-   var port = server.address().port
+console.log('Node app is running on port', app.get('port'));
+   //var host = server.address().address
+  // var port = server.address().port
 
-   console.log("Example app listening at http://%s:%s", host, port)
+  // console.log("Example app listening at http://%s:%s", host, port)
 })
