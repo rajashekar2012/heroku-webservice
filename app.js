@@ -23,26 +23,26 @@ app.delete('/del_user', function (req, res) {
 app.get('/list_user', function (req, res) {
 	
 	 var response={
-		 outputSpeech:{
-			 type:"PlainText",
-			 text:"Hello World Get"
-		 },
-		 card:{
-			 type:"Simple",
-			 title:"sample title",
-			 content:"content"
-		 },
-		 repromt:{
-			 outputSpeech:{
-				 type:"PlainText",
-				 text:"hello world repromt Get"
-			 }
-		 },
-		 shouldEndSession:true
-	 };
+	outputSpeech: {
+		type: "PlainText",
+		text: "Hello World Get"
+	},
+	card: {
+		type: "Simple",
+		title: "sample title",
+		content: "content"
+	},
+	repromt: {
+		outputSpeech: {
+			type: "PlainText",
+			text: "hello world repromt Get"
+		}
+	},
+	shouldEndSession: true
+}
 	 
 	 console.log("Got a GET request for /list_user");
-	 res.send(JSON.parse(response));
+	 res.send(response);
 	
    //console.log("Got a GET request for /list_user");
   // res.send('Page Listing');
