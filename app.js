@@ -21,6 +21,27 @@ app.delete('/del_user', function (req, res) {
 
 // This responds a GET request for the /list_user page.
 app.get('/list_user', function (req, res) {
+	
+	// var response={
+		// outputSpeech:{
+			// type:"PlainText",
+			// text:"Hello World Get"
+		// },
+		// card{
+			// type:"Simple",
+			// title:"sample title",
+			// content:"content"
+		// },
+		// repromt:{
+			// outputSpeech:{
+				// type:"PlainText",
+				// text:"hello world repromt Get"
+			// }
+		// },
+		// shouldEndSession:true
+	// }
+	// res.send(JSON.parse(response);
+	
    console.log("Got a GET request for /list_user");
    res.send('Page Listing');
 })
