@@ -40,7 +40,7 @@ app.post('/', function (req, res) {
 		},
 		shouldEndSession:true
 	}
-	res.send(response);
+	res.send(JSON.parse(response));
 	
   // console.log("Got a POST request for the homepage");
   // res.send('Hello POST');
@@ -73,7 +73,7 @@ app.get('/list_user', function (req, res) {
 		},
 		shouldEndSession:true
 	}
-	res.send(response);
+	res.send(JSON.parse(response));
 	
    //console.log("Got a GET request for /list_user");
   // res.send('Page Listing');
