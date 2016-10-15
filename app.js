@@ -42,7 +42,7 @@ app.get('/list_user', function (req, res) {
 	 };
 	 
 	 console.log("Got a GET request for /list_user");
-	 res.send(JSON.parse(response);
+	 res.send(JSON.parse(response));
 	
    //console.log("Got a GET request for /list_user");
   // res.send('Page Listing');
