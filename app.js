@@ -13,6 +13,14 @@ app.post('/', function (req, res) {
    res.send('Hello POST');
 })
 
+
+// This responds a POST request for the homepage
+app.post('/alexaService', function (req, res) {
+   console.log("Got a POST request for the Amazon");
+   res.send('Welcome to alexaService');
+})
+
+
 // This responds a DELETE request for the /del_user page.
 app.delete('/del_user', function (req, res) {
    console.log("Got a DELETE request for /del_user");
