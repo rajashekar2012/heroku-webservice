@@ -16,8 +16,29 @@ app.post('/', function (req, res) {
 
 // This responds a POST request for the homepage
 app.post('/alexaService', function (req, res) {
+
+	 var response={
+	outputSpeech: {
+		type: "PlainText",
+		text: "Hello World Get"
+	},
+	card: {
+		type: "Simple",
+		title: "sample title",
+		content: "content"
+	},
+	repromt: {
+		outputSpeech: {
+			type: "PlainText",
+			text: "hello world repromt Get"
+		}
+	},
+	shouldEndSession: true
+}
+
    console.log("Got a POST request for the Amazon");
-   res.send('Welcome to alexaService');
+   res.send(response);
+   //res.send('Welcome to alexaService');
 })
 
 
