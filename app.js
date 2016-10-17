@@ -1,6 +1,4 @@
 var express = require('express');
-var AlexaSkill = require('./AlexaSkill');
-
 var app = express();
 
 
@@ -74,7 +72,7 @@ app.get('/list_user', function (req, res) {
 }
 	 
 	 console.log("Got a GET request for /list_user");
-	 res.send(alexaSampleSill());
+	 res.send("my fav color is red");
 	
    //console.log("Got a GET request for /list_user");
   // res.send('Page Listing');
@@ -93,57 +91,3 @@ var server = app.listen(port_, function () {
 
    console.log("Example app listening at http://%s:%s", host, port)
 })
-
-
-/*========================= alexa ==============================*/
-var alexaSampleSill=function  () {
-	
-	var APP_ID = "amzn1.ask.skill.b95e0641-ebd0-4cb0-9d3e-460eb29081da"; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
-
-	
-
-	var GetFavoriteColor = function () {
-	    AlexaSkill.call(this, APP_ID);
-	};
-
-	// Extend AlexaSkill
-	GetFavoriteColor.prototype = Object.create(AlexaSkill.prototype);
-	GetFavoriteColor.prototype.constructor = GetFavoriteColor;
-
-	GetFavoriteColor.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-	    console.log("GetFavoriteColor onSessionStarted requestId: " + sessionStartedRequest.requestId
-	        + ", sessionId: " + session.sessionId);
-	    // any initialization logic goes here
-	};
-
-	GetFavoriteColor.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-	    console.log("GetFavoriteColor onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-	    var speechOutput = "Welcome to the Alexa Skills Kit, you can say hello";
-	    var repromptText = "You can say hello";
-	    response.ask(speechOutput, repromptText);
-	};
-
-	GetFavoriteColor.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-	    console.log("GetFavoriteColor onSessionEnded requestId: " + sessionEndedRequest.requestId
-	        + ", sessionId: " + session.sessionId);
-	    // any cleanup logic goes here
-	};
-
-	GetFavoriteColor.prototype.intentHandlers = {
-	    // register custom intent handlers
-	    "GetFavoriteColorIntent": function (intent, session, response) {
-	        response.tellWithCard("Hello World!", "Hello World", "Hello World!");
-	    },
-	    "AMAZON.HelpIntent": function (intent, session, response) {
-	        response.ask("You can say hello to me!", "You can say hello to me!");
-	    }
-	};
-
-	// Create the handler that responds to the Alexa Request.
-	exports.handler = function (event, context) {
-	    // Create an instance of the GetFavoriteColor skill.
-	    var GetFavoriteColor = new GetFavoriteColor();
-	    GetFavoriteColor.execute(event, context);
-	};
-
-}
