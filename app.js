@@ -38,7 +38,7 @@ app.post('/alexaService', function (req, res) {
 }*/
 
    console.log("Got a POST request for the Amazon");
-   res.send(response);
+   res.send('Welcome to alexaService');
    //res.send('Welcome to alexaService');
 })
 
